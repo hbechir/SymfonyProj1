@@ -1,0 +1,18 @@
+<?php
+// src/Repository/BookRepository.php
+namespace App\Repository;
+
+use App\Entity\Student;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+class StudentRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Student::class);
+    }
+
+    // Add your custom queries here
+}
+?>

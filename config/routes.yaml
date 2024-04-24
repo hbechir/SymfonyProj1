@@ -1,0 +1,33 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+hello:
+    path: /hello/{name}
+    controller: App\Controller\IndexController::hello
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+showOne:
+    path: /messages/{id}
+    controller: App\Controller\IndexController::showOne
+borrowing:
+    path: /borrowing
+    controller: App\Controller\IndexController::borrowing
+
+
+
+students:
+    path: /students
+    controller: App\Controller\StudentController::index
+newstudent:
+    path: /students/new
+    controller: App\Controller\StudentController::new
+
+
+borrowings:
+    path: /borrowings
+    controller: App\Controller\BorrowingController::index

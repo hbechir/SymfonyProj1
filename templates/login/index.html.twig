@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{# ... #}
+{% block body %}
+    <style>
+        .form-outer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* 50% of the viewport height */
+            width: 100%;
+
+        }
+        .form-inner-container {
+            width: 50%; /* 30% of its parent's width */
+			height: 80%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid #ccc;
+			border-radius: 20px;
+			flex-direction: column;
+        }
+		.form-group{
+			
+			width: 500px;
+		}
+		.form-group *{
+			margin-top: 5px;
+
+		}
+		.form-group button {
+			margin-top: 20px;
+		}
+    </style>
+    <div class="form-outer-container">
+        
+		<div class="form-inner-container">
+		<h1>Login</h1>
+        <form action="{{ path('app_login') }}" method="post" class="form-group">
+		
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password" class="form-control"/>
+            </div>
+            {# If you want to control the URL the user is redirected to on success
+            <input type="hidden" name="_target_path" value="/account"/> #}
+			{% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+            <button type="submit" class="btn btn-primary">login</button>
+        </form>
+		</div>
+
+    </div>
+{% endblock %}
